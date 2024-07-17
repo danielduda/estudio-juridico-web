@@ -1,0 +1,55 @@
+<br>
+
+<header class="header fixed-top">
+    <div class="logo">
+        <a href="/"> <img src="images/logo-juridico.jpeg" alt="Logo del cliente"></a>
+
+
+
+    </div>
+    <div class="title">
+        <h2 class="effect-3d">Estudio <br>Integral</h2>
+    </div>
+
+</header>
+<section class="hero-contacto">
+    <h1 class="titulo-h1 centrar saludo text-white mt-5 text-center">Escribenos...</h1>
+    <div class="form-contacto">
+        <form class="formulario" id="id_contacto" action="/send-email" method="post" enctype="multipart/form-data">
+            <div class="form-col">
+                <div class="input-2-col der2izq">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+                    <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
+                </div>
+                <p class="izq2der"><input type="email" name="email" id="email" class="input-2-col font-input-normal"
+                        placeholder="ingrese su correo electronico" required></p>
+                <p class="mensaje der2izq">
+                    <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Dejanos tu mensaje..."
+                        required></textarea>
+                </p>
+
+                <div class="select_tc content-form der2izq">
+                    <h3 class="color-text-form text-white">Tipo de consulta:</h3>
+                    <p>
+                        <select class="tipo_consulta" id="tipo_consulta" name="tipo_consulta" size="3"
+                            onchange="mostrarInputFile()">
+                            <!-- el atributo size hace que NO sea un dropdownlist ademas, permite ver el elemento preseleccionado!-->
+                            <option value="1" selected="selected">Nuestros servicios</option>
+                            <option value="3">Ser parte del equipo</option>
+                            <option value="5">Otro tipo de consulta</option>
+                        </select>
+                    </p>
+                </div>
+                <div class="upload_file content-form" id="div_pdf" style="display: none;">
+                    <p class="color-text-form text-white">Carga archivo PDF:</p>
+                    <p><input type="file" name="archivo" id="archivo" onchange="validarArchivo()" accept=".pdf"></p>
+                </div>
+                <div class="aba2arr">
+                    <input class="enviar pointer" id="btn-enviar" type="submit" value="Enviar">
+                </div>
+            </div>
+        </form>
+        <p id="error-carga">Error de datos cargados</p>
+        <p id="enviado">Mensaje Enviado! Muchas gracias por su contacto!</p>
+    </div>
+</section>
