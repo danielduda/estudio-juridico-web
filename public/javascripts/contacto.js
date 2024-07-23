@@ -3,6 +3,7 @@
 const txtNombre = document.getElementById('nombre');
 const txtApellido = document.getElementById('apellido');
 const txtEmail = document.getElementById('email');
+const txtTel = document.getElementById('tel');
 const txtMensaje = document.getElementById('mensaje');
 const txtEnviado = document.getElementById('enviado');
 const txtErrCarga = document.getElementById('error-carga');
@@ -12,6 +13,17 @@ const archivo = document.getElementById('archivo');
 const div_pdf = document.getElementById('div_pdf');
 const id_contacto = document.getElementById('id_contacto');
 let lEnvio = false;
+
+
+ // Validar en tiempo real la entrada del teléfono
+ txtTel.addEventListener('input', function() {
+    let expValTel = /^\d*$/; // Permite solo números
+    if (!expValTel.test(txtTel.value)) {
+        txtTel.value = txtTel.value.replace(/\D/g, ''); // Elimina caracteres no numéricos
+    }
+});
+
+
 
 /* Asignacion de eventos al inicio de carga de la pagina */
 window.addEventListener('load', e => {
@@ -25,6 +37,7 @@ window.addEventListener('load', e => {
 /* valida los campos */
 function do_enviar() {
     let expValEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    let expValTel = /^\d{7,14}$/; // 7 a 14 numeros.
     hide_mensajes();
 
     let cConsulta = tipo_consulta.value;
@@ -36,11 +49,17 @@ function do_enviar() {
     if (cMensaje.length == 0 && txtApellido.value.length <= 0) {
         cMensaje = `Ingrese su Apellido por favor...`;
     }
+   
     if (cMensaje.length == 0 && !expValEmail.test(txtEmail.value)) {
         cMensaje = `El e-mail ingresado NO es válido!`;
     }
+
+    if (cMensaje.length == 0 && !expValTel.test(txtTel.value)) {
+        cMensaje = `Ingrese su Numero de telefono por favor...`;
+    }
+   
     if (cMensaje.length == 0 && txtMensaje.value.length <= 0) {
-        cMensaje = `Dejenos un mensaje... ;-) `;
+        cMensaje = `Dejenos un mensaje...`;
     }
     if (cMensaje.length == 0 && cConsulta == "3" && archivo.files.length <= 0) {
         cMensaje = `Por favor, cargue un archivo`;
@@ -48,8 +67,10 @@ function do_enviar() {
     if (cMensaje.length > 0) {
         txtErrCarga.innerText = cMensaje;
         txtErrCarga.style.display = 'block';
+        txtErrCarga.style.color = "black";
         return;
     }
+   
 
     lEnvio = ProcesarEnvio();
     setTimeout(MensajeFinal, 3000);
@@ -68,7 +89,7 @@ function validarYEnviarFormulario() {
 function mostrarInputFile() {
     if (tipo_consulta.value === "3") {
         div_pdf.style.display = "block";
-        div_pdf.style.color = "white";
+        div_pdf.style.color = "black";
     } else {
         div_pdf.style.display = "none";
     }

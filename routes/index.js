@@ -6,20 +6,27 @@ var testimoniosModel = require('../models/testimoniosModel');
 
 var cloudinary = require(`cloudinary`).v2;
 
-/* GET home page. */
+
 router.get('/', async function(req, res, next) {
+  var testimonios = await testimoniosModel.getTestimonios();
+  res.render('index', { testimonios });
+});
+
+
+
+/* GET home page. */
+router.get('/novedades', async function(req, res, next) {
 
   var novedades= await novedadesModel.getNovedades();
   var testimonios = await testimoniosModel.getTestimonios();
 
-  novedades= novedades.splice (0,5); //selecciona los primeros 5 elementos del array
+  
   novedades = novedades.map (novedad =>{
 
     if(novedad.img_id){
   
         const imagen = cloudinary.url (novedad.img_id, {
-            width:460,
-            crop: `fill`
+          
   
         });
         return {
@@ -35,7 +42,7 @@ router.get('/', async function(req, res, next) {
   
   });
 
-res.render('index',{novedades,testimonios});
+res.render('novedades',{novedades,testimonios});
 });
 
 router.post ('/', async (req, res, next) => {

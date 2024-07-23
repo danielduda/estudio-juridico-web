@@ -1,0 +1,44 @@
+<div class="container-fluid text-dark mt-5">
+    
+    <div class="titulo-novedades mb-3 izq2der">
+        <h2>Novedades</h2>
+    </div>
+<section class="seccion-pagina text-white">
+    {{#each novedades}}
+    <div class="producto " style="margin-top: 100px; background-image: url('{{imagen}}');">
+        <div class="contenido">
+            <h2>{{titulo}}</h2>
+            <p>{{cuerpo}}</p>
+            <a href="" data-toggle="modal" data-target="#exampleModal{{id}}"><button>Leer Más</button></a>
+        </div>
+    </div>
+    {{/each}}
+</section>
+
+
+
+
+    <!-- Modal -->
+    {{#each novedades}}
+    <div class="modal fade bg-dark" id="exampleModal{{id}}" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h1 class="modal-title text-white" id="exampleModalLabel">{{titulo}}</h1>
+                    <button type="button" class="btn-close btn btn-danger" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-white">Fecha: {{fecha_publicacion}}</p>
+                    <h3 class="text-white">{{subtitulo}}</h3>
+                    <img src="{{{imagen}}}" class="img-fluid">
+                    <p class="text-white">{{cuerpo}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    <!--cierre modal-->
+</div>

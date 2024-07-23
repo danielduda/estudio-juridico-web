@@ -1,8 +1,17 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
+let menuVisible = false;
+//Función que oculta o muestra el menu
+function mostrarOcultarMenu(){
+    if(menuVisible){
+        document.getElementById("nav").classList ="";
+        menuVisible = false;
+    }else{
+        document.getElementById("nav").classList ="responsive";
+        menuVisible = true;
+    }
+}
 
-    menuToggle.addEventListener('click', () => {
-        navLinks.style.display = (navLinks.style.display === 'none' || navLinks.style.display === '') ? 'block' : 'none';
-    });
-});
+function seleccionar(){
+    //oculto el menu una vez que selecciono una opcion
+    document.getElementById("nav").classList = "";
+    menuVisible = false;
+}

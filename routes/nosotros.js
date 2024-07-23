@@ -3,8 +3,9 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('biolink'); //va a llamar a biolink.hbs
+  res.render('nosotros',{
+    bodyClass: 'background-black'
+}); //va a llamar a biolink.hbs
 });
 
 module.exports = router;
-

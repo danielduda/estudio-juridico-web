@@ -38,6 +38,10 @@ require('dotenv').config();
 
   //crear square.js
   var biolinkRouter = require('./routes/biolink');
+  var nosotrosRouter = require ('./routes/nosotros');
+  var novedadesRouter = require ('./routes/novedades');
+  var serviciosRouter = require  ('./routes/servicios');
+  //crear nosotros.js
   //crear biolink.js
   var loginRouter = require('./routes/admin/login');
   //crear admin.js login.js
@@ -62,7 +66,7 @@ require('dotenv').config();
 
 
   app.post('/send-email', upload.single('archivo'), async (req, res) => {
-    var { nombre, apellido, email, mensaje, tipo_consulta } = req.body;
+    var { nombre, apellido,tel,email, mensaje, tipo_consulta } = req.body;
     var archivo = req.file;
   
     var config = {
@@ -80,7 +84,7 @@ require('dotenv').config();
       from: `danielosvaldoduda93@gmail.com`,
       to: `danielosvaldoduda93@gmail.com`,
       subject: `Mensaje de contacto`,
-      text: `Nombre: ${nombre}\nApellido: ${apellido}\nEmail: ${email}\nMensaje: ${mensaje}\nTipo de consulta: ${tipo_consulta}`,
+      text: `Nombre: ${nombre}\nApellido: ${apellido}\nTelefono: ${tel}\nEmail: ${email}\nMensaje: ${mensaje}\nTipo de consulta: ${tipo_consulta}`,
       attachments: archivo ? [{ path: archivo.path }] : []
     };
   
@@ -93,14 +97,6 @@ require('dotenv').config();
     }
   });
   
-
-
-
-
-
-
-
-
 
 
 
@@ -151,6 +147,9 @@ app.use(fileUpload({
   //creamos los manejadores de rutas
 
   app.use('/biolink', biolinkRouter);
+  app.use('/nosotros', nosotrosRouter);
+  app.use('/servicios', serviciosRouter);
+  app.use('/novedades', novedadesRouter);
   app.use('/admin/login', loginRouter);
   app.use('/admin/novedades', secured, adminRouter);
   app.use('/admin/testimonios', testimoniosRouter);

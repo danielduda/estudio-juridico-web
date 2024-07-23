@@ -1,262 +1,96 @@
-<br><br><br><br><br><br>
-
-<div class="container-fluid text-white">
-
-   
-
-    <!--sección novedades/noticias-->
-    <div class="row my-3">
-        <br><br>
-        <div id="novedades" class="col-md-5 offset-md-2 py-3  scroll_section">
-            <h2>Noticias</h2>
-            <ul class="lista-novedades">
-                {{#each novedades}}
-                <li> <a href="#" data-toggle="modal" data-target="#exampleModal{{id}}">
-                        <img src={{imagen}}>{{titulo}}</a></li>
-
-                {{/each}}
-            </ul>
-
-
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner custom-carousel">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="images/inicioestudio8.jpeg" alt="First slide">
+        <div class="info">
+            <h2>Comidas exquisitas para el paladar</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+             <a href="/nosotros" target="_blank"><button>Leer Más</button></a>
+          
         </div>
-        <!--cierre sección novedades/noticias-->
-
-
-
-        <!-- Modal -->
-        {{#each novedades}}
-        <div class="modal fade bg-dark" id="exampleModal{{id}}" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content bg-dark">
-                    <div class="modal-header">
-                        <h1 class="modal-title text-white" id="exampleModalLabel">{{titulo}}</h1>
-                        <button type="button" class="btn-close btn btn-danger" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <h3 class="text-white">{{subtitulo}}</h3>
-                        <img src="{{{imagen}}}">
-                        <p class="text-white">{{cuerpo}}</p>
-                    </div>
-
-                </div>
-            </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="images/inicioestudio9.jpeg" alt="Second slide">
+        <div class="info">
+            <h2>Delicias caseras</h2>
+            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.</p>
+           <a href="/servicios" target="_blank"><button>Leer Más</button></a>
         </div>
-        {{/each}}
-        <!--cierre modal-->
-
-
-    
-    <div class="col-md-4 my-3">
-        <div id="testimonios" class="rounded py-2 testimonios  scroll_section">
-            <h2 class="text-center">Comentarios</h2>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    {{#each testimonios}}
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    {{/each}}
-                </ol>
-                <div class="carousel-inner">
-                    {{#each testimonios}}
-                    <div class="carousel-item {{#if @first}}active{{/if}}">
-                        <div class="testimonio">
-                            <h5 class="textTestimonio">{{comentario}}</h5>
-                            <p>{{usuario}} {{ubicacion}}</p>
-                        </div>
-                    </div>
-                    {{/each}}
-                </div>
-               
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div> <br>
-         <div class="text-center">
-                    <a href="/admin/testimonios/comentario" class="btn btn-lg btn-success">Comentar</a>
-                </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="images/inicioestudio10.jpeg" alt="Third slide">
+        <div class="info">
+            <h2>Sabor y calidad</h2>
+            <p>Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            <a href="/novedades" target="_blank"><button>Leer Más</button></a>
+        </div>
+      </div>
     </div>
-
-
-    
-
-
-
-
-
-
-
-
-
-
-    <!--seccion nuestra historia-->
-    <br>
-    <div id="historia" class="row align-items-center py-4  scroll_section">
-        <div class="col-lg-2 col-md-3 offset-lg-2 d-none d-sm-block">
-            <img src="images/vecindario.jpg" alt="historia1" class="img-fluid">
-        </div>
-        <div class="col-lg-2 col-md-3 d-none d-sm-block">
-            <img src="images/oficinas.jpg" alt="historia 2" class="img-fluid">
-        </div>
-        <div class="col-lg-4 col-md-6 mt-4 mt-sm-0">
-            <h2>Nuestra historia</h2>
-            <p class="parrafo-historia text-white"> Una visión tuvo lugar hace 3 años en un barrio de clase
-                trabajadora
-                de la ciudad de Buenos Aires. Algunos tildaron aquella visión de locura,
-                nosotros lo llamábamos <b><i>"el futuro"</i></b>. <br>En un garage instalamos cuatro computadoras
-                y esa fue nuestra oficina, y a mitad de aquel primer año, habíamos crecido tan rápido,
-                que empezamos la mudanza a madero center <span style="font-size:small; color:orange;"> (2°imagen,
-                    actuales oficinas de 4TECH).</span>
-                <br>Sentimos orgullo de nuestras raíces, por eso no nos olvidamos de dónde venimos ni tampoco hacia
-                dónde vamos.
-
-
-            </p>
-        </div>
-
-    </div>
-    <!--cierre sección nuestra historia-->
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
 
 
 
+<div class="container-fluid">
 
-    <!--sección nosotros-->
-    <br>
-    <h2>Staff</h2>
-    <div id="staff" class="card-deck  scroll_section">
-
-        <div class="card">
-
-            <img class="card-img-top" src="images/nosotros01.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Diana Rebert</h4>
-                <br>
-                <h5 class="card-text">Diseñadora</h5>
-                <p class="card-text" align="justify">Rebert es sinónimo de compromiso, se toma
-                    muy en serio su trabajo, y entiende a la perfección los requerimientos
-                    de los usuarios.</p>
-            </div>
-
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="images/nosotros03.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Marco Di Natale</h4>
-                <br>
-                <h5 class="card-text">Programador en jefe</h5>
-                <p class="card-text" align="justify">Di Natale es experto en cualquier lenguaje de programación,
-                    es la seriedad en persona.
-                </p>
-            </div>
-
-
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="images/nosotros02.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Santos Heredia</h4>
-                <br>
-                <h5 class="card-text">Ingeniero electrónico y mecánico</h5>
-                <p class="card-text" align="justify">Heredia, fundador de 4TECH, una de las mentes más reconocidas
-                    de los últimos tiempos. Su objetivo último, así como la visión de la empresa,
-                    es llevar a la humanidad a la próxima generación.
-                </p>
-            </div>
-
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="images/nosotros04.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h4 class="card-title">Nicolás Arrieta</h4>
-                <br>
-                <h5 class="card-text">Ingeniero en software</h5>
-                <p class="card-text" align="justify">Arrieta es quien le da vida a la visión de 4TECH. Es muy exigente y
-                    no deja nada
-                    librado al azar.</p>
-            </div>
-
-        </div>
-    </div>
-    <!--cierre sección nosotros-->
-
-    <!--inicio mapa +formulario-->
+    <!--sedes-->
     <div id="conocenos" class="row py-4 scroll_section">
-        <div class="col-md-4 offset-md-2">
-            <h2>Visitanos</h2>
+        <div class="col-md-4 mb-4"> <!-- Añadido mb-4 para margen inferior -->
+            <div class="titulo-mapa mb-3"> <!-- Añadido mb-3 para margen inferior -->
+                <h2>Sede CABA</h2>
+            </div>
+
+            <div class="mapa">
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.2678968728083!2d-58.37989202514695!3d-34.597386657162275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccaca20383e3b%3A0xa7e2b4618730fe13!2sParaguay%20729%2C%20C1057AAI%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1721594950028!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="subtitulo-mapa mt-3"> <!-- Añadido mt-3 para margen superior -->
+                <span><i class="fas fa-envelope"></i>estudiosociedad4@gmail.com</span>
+                 <span><i class="fas fa-building"></i>6°piso ofic.24</span>
+            </div>
+        </div>
+         
+        <div class="col-md-4 mb-4">
+            <div class="titulo-mapa mb-3">
+                <h2>Sede Bs As</h2>
+            </div>
+            <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3287.5398637910052!2d-58.57042822515191!3d-34.51454785279294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcba6311ec9ff7%3A0x4014cebef7968fed!2sAv.%20Avelino%20Rol%C3%B3n%202588%2C%20B1609HVF%20Boulogne%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1721595112894!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="subtitulo-mapa mt-3">
+                <span><i class="fas fa-envelope"></i>estudiosociedadcontable@gmail.com</span>
+                  <span><i class="fas fa-building"></i>1°piso ofic.12</span>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="titulo-mapa mb-3">
+                <h2>Sede 3</h2>
+            </div>
             <div class="mapa">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13135.917032025916!2d-58.374486074801915!3d-34.60468600550491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a3352e592d3b0b%3A0x620cadd22cda5273!2sMadero%20Center!5e0!3m2!1ses!2sar!4v1685580699994!5m2!1ses!2sar"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
-
-        </div>
-        <!--cierre div con id visitanos-->
-
-        <!--formulario contacto-->
-        <div id="contacto" class="col-md-4 mt-4 mt-sm-0  scroll_section ">
-            <h2>Contactanos</h2>
-            <form class="row g-3" action="/" method="post">
-                <div class="col-md-6">
-
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre">
-                </div>
-
-                <div class="col-md-6">
-
-                    <label for="apellido" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" id="apellido" name="apellido">
-                </div>
-
-                <div class="col-12">
-
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="email@email.com" name="email">
-                </div>
-
-                <div class="col-12">
-
-                    <label for="tel" class="form-label">Teléfono</label>
-                    <input type="text" class="form-control" id="tel" placeholder="..." name="tel">
-                </div>
-
-                <div class="col-12">
-
-                    <label for="mensaje" class="form-label">Mensaje</label>
-                    <textarea class="form-control" id="mensaje" cols="30" rows="3" name="mensaje"></textarea>
-                </div>
-
-                <div class="col-12">
-                    <br><br>
-
-                    <button type="submit" class="btn btn-primary">Enviar 
-
-                    </button>
-                </div>
-
-
-
-            </form> <br>
-            <p align="center" class="mensaje">{{message}}</p> <!--le pasamos una propiedad -->
+            <div class="subtitulo-mapa mt-3">
+                <span><i class="fas fa-envelope"></i>oficina3@gmail.com</span>
+                <span><i class="fa-solid fa-phone"></i>+1123-456-7890</span>
+            </div>
         </div>
     </div>
-    <!--cierre mapa +formulario-->
-
-
-
-
-
-
-
-
 </div>
-<!--cierre div contenedor-->
+
+
